@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 //import {} from 'dotenv/config';
 
 let pwd;
-const port = 3001;
+const port = process.env.PORT || 3001;
 const app = express();
 
 // Schemas & models
