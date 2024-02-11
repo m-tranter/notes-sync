@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dir = path.join(__dirname, '../public');
 
 let pwd;
-const port = 3001;
+const port = process.env.PORT || 3001;
 const app = express();
 
 // Schemas & models
