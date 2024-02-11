@@ -2,7 +2,7 @@
 
 import express from 'express';
 import mongoose from 'mongoose';
-import {} from 'dotenv/config';
+//import {} from 'dotenv/config';
 
 let pwd;
 const port = 3001;
