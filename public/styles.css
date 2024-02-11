@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+.notes {
+  background: #333;
+}
+
+textarea {
+  font-family: sans-serif;
+}
+
+.notes {
+  border-radius: 10px;
+  border: 3px solid Teal;
+  padding: 0.5rem;
+  color: White;
+  resize: none;
+}
+
+.notes:focus {
+  outline: 0 solid transparent;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+}
+
+.btn-sm {
+  display: inline;
+  width: 3rem;
+}
+
+#pwd-input,
+#pwd-area {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: Black;
+  width: 11rem;
+}
+
+#indicator {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: #333;
+  display: inline-block;
+}
