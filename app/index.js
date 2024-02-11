@@ -4,8 +4,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 //import {} from 'dotenv/config';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dir = path.join(__dirname, '../public');
+
 let pwd;
-const port = process.env.PORT || 3001;
+const port = 3001;
 const app = express();
 
 // Schemas & models
@@ -28,7 +33,7 @@ const noteSchema = new mongoose.Schema({
 const Note = mongoose.model('Note', noteSchema);
 const User = mongoose.model('User', userSchema);
 
-app.use(express.static('public'));
+app.use(express.static(dir));
 app.use(express.json());
 
 // Mongo
