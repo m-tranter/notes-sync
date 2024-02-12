@@ -49,6 +49,7 @@ function pword() {
 }
 
 function sync() {
+  ind.style.backgroundColor = 'Blue';
   fetch('/sync', {
     method: 'POST',
     body: JSON.stringify({
@@ -73,7 +74,16 @@ function sync() {
 }
 
 function load() {
-  fetch(`/load/?id=${pwd.value}`)
+  ind.style.backgroundColor = 'Blue';
+  fetch('/load',{
+    method: 'POST',
+    body: JSON.stringify({
+      pwd: pwd.value,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
     .then((response) => {
       if (!response.ok) {
         ind.style.backgroundColor = 'Orange';

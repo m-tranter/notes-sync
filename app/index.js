@@ -2,7 +2,7 @@
 
 import express from 'express';
 import mongoose from 'mongoose';
-//import {} from 'dotenv/config';
+import {} from 'dotenv/config';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dir = path.join(__dirname, '../public');
 
 let pwd;
-const port = process.env.PORT || 3001;
+const port = 3001;
 const app = express();
 
 // Schemas & models
@@ -54,8 +54,8 @@ db.once('connected', async () => {
 });
 
 // Routes
-app.get('/load/', async (req, res) => {
-  if (req.query.id === pwd) {
+app.post('/load/', async (req, res) => {
+  if (req.body.pwd === pwd) {
     let note = await Note.findOne({});
     res.json({ text: note.text });
   } else {
