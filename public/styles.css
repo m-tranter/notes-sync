@@ -8,19 +8,15 @@ body,
 }
 
 textarea {
-  font-family: sans-serif;
+  font-family: "Cascadia Code", sans-serif;
 }
+
 
 .notes {
   border-radius: 10px;
   border: 3px solid Teal;
-  padding: 0.5rem;
   color: White;
   resize: none;
-}
-
-.notes:focus {
-  outline: 0 solid transparent;
 }
 
 ::-webkit-scrollbar {
@@ -28,23 +24,39 @@ textarea {
   width: 0;
 }
 
-.btn-sm {
-  display: inline;
+.btn-sm  {
   width: 3rem;
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+}
+
+.btn-cp {
+  width: 2rem;
 }
 
 #pwd-input,
 #pwd-area {
   font-weight: 600;
-  font-size: 1.2rem;
   color: Black;
-  width: 11rem;
+  width: 9rem;
+  height: 2rem;
+  border-radius: 5px;
+  padding-left: 0.3rem;
+}
+
+#pwd-input:focus,
+.notes:focus {
+  outline: 0 solid transparent;
+}
+
+#pwd-area {
+  background-color: White;
 }
 
 #indicator {
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  background-color: #333;
+  width: 2rem;
+  height: 2rem;
+  background-color: Teal;
   display: inline-block;
 }

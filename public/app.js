@@ -2,6 +2,7 @@
 const myNote = document.getElementById('notes');
 const password = document.getElementById('pwd-area');
 const pSpan = document.getElementById('pwordSpan');
+const pwdCol = document.getElementById('pwd-col');
 const pwd = document.getElementById('pwd-input');
 const ind = document.getElementById('indicator');
 
@@ -20,29 +21,29 @@ fetch('./short_words.json')
   })
   .then((jsondata) => {
     short_words = jsondata.short_words;
-    console.log(`${short_words.length} words available.`);
   });
 
 function copyPwd() {
   let temp = password.select();
   navigator.clipboard.writeText(password.value);
+  password.style.backgroundColor="LightGreen";
+  setTimeout(() => password.style.backgroundColor = "White", 500);
+
 }
 
 function togglePwd() {
-  if (pwd.classList.contains('d-none')){
-    pwd.classList.remove('d-none');
+  if (pwdCol.classList.contains('d-none')){
+    pwdCol.classList.remove('d-none');
   } else {
-    pwd.classList.add('d-none');
+    pwdCol.classList.add('d-none');
   }
 }
 
 function pword() {
   if (pSpan.classList.contains('d-none')) {
     pSpan.classList.remove('d-none');
-    pSpan.classList.add('d-inline');
     password.value = genPassword();
   } else {
-    pSpan.classList.remove('d-inline');
     pSpan.classList.add('d-none');
     password.value = '';
   }
