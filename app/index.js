@@ -3,7 +3,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import {} from 'dotenv/config';
+//import {} from 'dotenv/config';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
