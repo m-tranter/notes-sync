@@ -3,7 +3,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-//import {} from 'dotenv/config';
+import {} from 'dotenv/config';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -27,7 +27,6 @@ const userSchema = new mongoose.Schema({
 });
 const noteSchema = new mongoose.Schema({
   text: {
-    required: true,
     type: String,
   },
 });
@@ -67,7 +66,6 @@ app.post('/load/', async (req, res) => {
 app.post('/sync/', async (req, res) => {
   if (req.body.pwd === pwd) {
     let note = await Note.findOne({});
-    note.text = req.body.text;
     let write = await note.save();
     res.status(200).send();
   }
