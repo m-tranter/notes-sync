@@ -66,8 +66,17 @@ app.post('/load/', async (req, res) => {
 app.post('/sync/', async (req, res) => {
   if (req.body.pwd === pwd) {
     let note = await Note.findOne({});
-    let write = await note.save();
-    res.status(200).send();
+    note.text = req.body.text;
+    await note
+      .save()
+      .then((success) => {
+        res.status(200).send();
+      })
+      .catch((err) => {
+        console.log(err._message);
+        res.status(401).send();
+      });
   }
   res.status(401).send();
 });
+
