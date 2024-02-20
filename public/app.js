@@ -181,5 +181,4 @@ function saveNote() {
 
 function clearNote() {
   myNote.value = '';
-  ind.style.backgroundColor = '#333';
 }
