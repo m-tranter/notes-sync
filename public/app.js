@@ -165,7 +165,7 @@ function saveNote() {
   let i = msg.indexOf('\n');
   let fname = 'untitled';
   if (i !== -1) {
-    fname = msg.slice(0, i);
+    fname = msg.slice(0, i).replace(/\s/g, '_');
     msg = `${fname} ${myDate}\n${msg.slice(i + 1)}`;
   }
   fname = `${fname}_${dateStr}`;
