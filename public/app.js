@@ -26,13 +26,12 @@ fetch('./short_words.json')
 function copyPwd() {
   let temp = password.select();
   navigator.clipboard.writeText(password.value);
-  password.style.backgroundColor="LightGreen";
-  setTimeout(() => password.style.backgroundColor = "White", 500);
-
+  password.style.backgroundColor = 'LightGreen';
+  setTimeout(() => (password.style.backgroundColor = 'White'), 500);
 }
 
 function togglePwd() {
-  if (pwdCol.classList.contains('d-none')){
+  if (pwdCol.classList.contains('d-none')) {
     pwdCol.classList.remove('d-none');
   } else {
     pwdCol.classList.add('d-none');
@@ -76,7 +75,7 @@ function sync() {
 
 function load() {
   ind.style.backgroundColor = 'Blue';
-  fetch('/load',{
+  fetch('/load', {
     method: 'POST',
     body: JSON.stringify({
       pwd: pwd.value,
@@ -163,15 +162,15 @@ function saveNote() {
   let myDate = new Date().toLocaleDateString();
   let dateStr = myDate.replace('/', '_');
   let i = msg.indexOf('\n');
-  let fname = 'untitled';
-  if (i !== -1) {
-    fname = msg.slice(0, i).replace(/\s/g, '_');
-    msg = `${fname} ${myDate}\n${msg.slice(i + 1)}`;
-  }
-  fname = `${fname}_${dateStr}`;
+  let fname =
+    i !== -1 ? msg.slice(0, i).trim() : msg.split(/\s/).slice(0, 2).join(' ');
+  msg =
+    i !== -1 ? `${fname} ${myDate}\n${msg.slice(i + 1)}` : `${myDate}\n${msg}`;
+
+  fname = `${fname.replace(/\s/g, '_')}_${dateStr}`;
   link.setAttribute(
     'href',
-    'data:text/plain;charset=utf-8,' + encodeURIComponent(msg)
+    'data:text/plain;charset=utf-8,' + encodeURIComponent(msg),
   );
   link.download = fname + '.txt';
   document.body.appendChild(link);
@@ -181,4 +180,5 @@ function saveNote() {
 
 function clearNote() {
   myNote.value = '';
+  ind.style.backgroundColor = '#333';
 }
